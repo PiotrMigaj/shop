@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.migibud.shop.admin.api.AdminProduct;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @Slf4j
@@ -29,13 +30,13 @@ class AdminProductController {
         return adminProductFacade.getProduct(id);
     }
     @PostMapping
-    ResponseEntity<AdminProduct> createProduct(@RequestBody AdminProductDto adminProductDto){
+    ResponseEntity<AdminProduct> createProduct(@Valid @RequestBody AdminProductDto adminProductDto){
         AdminProduct adminProduct = adminProductMapper.toAdminProduct(EMPTY_ID,adminProductDto);
         AdminProduct result = adminProductFacade.createProduct(adminProduct);
         return ResponseEntity.created(URI.create("admin/products/%s".formatted(result.getId()))).body(result);
     }
     @PutMapping("{id}")
-    ResponseEntity<AdminProduct> updateProduct(@PathVariable Long id,@RequestBody AdminProductDto adminProductDto){
+    ResponseEntity<AdminProduct> updateProduct(@PathVariable Long id,@Valid @RequestBody AdminProductDto adminProductDto){
         AdminProduct adminProduct = adminProductMapper.toAdminProduct(id,adminProductDto);
         AdminProduct result = adminProductFacade.updateProduct(adminProduct);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(result);

@@ -29,4 +29,9 @@ logging:
       springframework:
         web: 'INFO'
 
+server:
+  error:
+    include-message: 'always'
+    include-binding-errors: 'always'
+
 

@@ -12,7 +12,7 @@ class AdminProductMapper {
                 .description(adminProductDto.description())
                 .category(adminProductDto.category())
                 .price(adminProductDto.price())
-                .currency(adminProductDto.currency().toUpperCase())
+                .currency(adminProductDto.currency())
                 .build();
     }
     AdminProductDto toAdminProductDto(AdminProduct adminProduct){

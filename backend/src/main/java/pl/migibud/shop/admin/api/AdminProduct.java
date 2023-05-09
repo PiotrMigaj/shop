@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import pl.migibud.shop.common.entity.BaseEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -19,15 +21,20 @@ public class AdminProduct extends BaseEntity {
     private String category;
     private String description;
     private BigDecimal price;
-    private String currency;
+    @Enumerated(EnumType.STRING)
+    private AdminProductCurrency currency;
 
     @Builder
-    public AdminProduct(Long id, String name, String category, String description, BigDecimal price, String currency) {
+    public AdminProduct(Long id, String name, String category, String description, BigDecimal price, AdminProductCurrency currency) {
         super(id);
         this.name = name;
         this.category = category;
         this.description = description;
         this.price = price;
         this.currency = currency;
+    }
+
+    public enum AdminProductCurrency{
+        PLN,USD
     }
 }
