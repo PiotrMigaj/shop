@@ -23,15 +23,17 @@ public class AdminProduct extends BaseEntity {
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private AdminProductCurrency currency;
+    private String image;
 
     @Builder
-    public AdminProduct(Long id, String name, String category, String description, BigDecimal price, AdminProductCurrency currency) {
+    public AdminProduct(Long id, String name, String category, String description, BigDecimal price, AdminProductCurrency currency, String image) {
         super(id);
         this.name = name;
         this.category = category;
         this.description = description;
         this.price = price;
         this.currency = currency;
+        this.image = image;
     }
 
     public enum AdminProductCurrency{

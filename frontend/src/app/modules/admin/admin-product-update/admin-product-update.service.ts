@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AdminProductUpdate } from './model/adminProductUpdate';
 import { Observable } from 'rxjs';
+import { UploadResponse } from './model/uploadResponse';
 
 
 @Injectable({
@@ -19,5 +20,9 @@ export class AdminProductUpdateService {
 
   saveProduct(id:number,value:AdminProductUpdate){
     return this.http.put<AdminProductUpdate>(this.BASE_URL+id,value);
+  }
+
+  uploadImage(formData: FormData):Observable<UploadResponse>{
+    return this.http.post<UploadResponse>(this.BASE_URL+'upload-image',formData);
   }
 }

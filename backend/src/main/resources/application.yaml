@@ -34,4 +34,7 @@ server:
     include-message: 'always'
     include-binding-errors: 'always'
 
+app:
+  uploadDir: './data/productImages/'
+
 

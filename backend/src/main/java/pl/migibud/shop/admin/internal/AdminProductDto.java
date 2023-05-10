@@ -15,6 +15,7 @@ record AdminProductDto(
         @NotBlank @Length(min = 4) String category,
         @NotBlank @Length(min = 4) String description,
         @NotNull @Min(0) BigDecimal price,
-        AdminProductCurrency currency
+        AdminProductCurrency currency,
+        String image
 ) {
 }
