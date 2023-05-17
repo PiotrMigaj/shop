@@ -1,8 +1,8 @@
-package pl.migibud.shop.admin.internal;
+package pl.migibud.shop.admin.product.internal;
 
 import com.github.slugify.Slugify;
 import org.springframework.stereotype.Component;
-import pl.migibud.shop.admin.api.AdminProduct;
+import pl.migibud.shop.admin.product.api.AdminProduct;
 
 @Component
 class AdminProductMapper {

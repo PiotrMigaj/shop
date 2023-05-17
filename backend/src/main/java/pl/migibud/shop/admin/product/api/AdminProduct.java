@@ -1,4 +1,4 @@
-package pl.migibud.shop.admin.api;
+package pl.migibud.shop.admin.product.api;
 
 import lombok.AccessLevel;
 import lombok.Builder;

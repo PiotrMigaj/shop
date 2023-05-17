@@ -1,4 +1,4 @@
-package pl.migibud.shop.admin.internal;
+package pl.migibud.shop.admin.product.internal;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

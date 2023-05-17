@@ -1,11 +1,11 @@
-package pl.migibud.shop.admin.internal;
+package pl.migibud.shop.admin.product.internal;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.migibud.shop.admin.api.AdminProduct;
+import pl.migibud.shop.admin.product.api.AdminProduct;
 
 import java.util.NoSuchElementException;
 
@@ -15,11 +15,11 @@ class AdminProductFacade {
 
     private final AdminProductRepository adminProductRepository;
 
-    public Page<AdminProduct> getProducts(final Pageable pageable) {
+    Page<AdminProduct> getProducts(final Pageable pageable) {
         return adminProductRepository.findAll(pageable);
     }
 
-    public AdminProduct getProduct(final long id) {
+    AdminProduct getProduct(final long id) {
         return adminProductRepository.findById(id)
                                      .orElseThrow(() -> new NoSuchElementException("There is no product with ID=%s".formatted(
                                              id)));

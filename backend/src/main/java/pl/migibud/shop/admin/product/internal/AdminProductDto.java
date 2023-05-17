@@ -1,8 +1,8 @@
-package pl.migibud.shop.admin.internal;
+package pl.migibud.shop.admin.product.internal;
 
 import lombok.Builder;
 import org.hibernate.validator.constraints.Length;
-import pl.migibud.shop.admin.api.AdminProduct.AdminProductCurrency;
+import pl.migibud.shop.admin.product.api.AdminProduct;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -16,7 +16,7 @@ record AdminProductDto(
         @NotBlank @Length(min = 4) String description,
         String fullDescription,
         @NotNull @Min(0) BigDecimal price,
-        AdminProductCurrency currency,
+        AdminProduct.AdminProductCurrency currency,
         String image,
         @NotBlank @Length(min = 4) String slug
 ) {
