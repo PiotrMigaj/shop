@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class AdminProduct extends BaseEntity {
     private String name;
-    private String category;
+    private Long categoryId;
     private String description;
     private String fullDescription;
     private BigDecimal price;
@@ -28,12 +28,12 @@ public class AdminProduct extends BaseEntity {
     private String slug;
 
     @Builder
-    public AdminProduct(Long id, String name, String category, String description,
+    public AdminProduct(Long id, String name, Long categoryId, String description,
                         final String fullDescription,
                         BigDecimal price, AdminProductCurrency currency, String image, String slug) {
         super(id);
         this.name = name;
-        this.category = category;
+        this.categoryId = categoryId;
         this.description = description;
         this.fullDescription = fullDescription;
         this.price = price;

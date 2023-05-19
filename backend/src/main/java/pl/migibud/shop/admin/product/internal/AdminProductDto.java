@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @Builder
 record AdminProductDto(
         @NotBlank @Length(min = 4) String name,
-        @NotBlank @Length(min = 4) String category,
+        @NotNull Long categoryId,
         @NotBlank @Length(min = 4) String description,
         String fullDescription,
         @NotNull @Min(0) BigDecimal price,

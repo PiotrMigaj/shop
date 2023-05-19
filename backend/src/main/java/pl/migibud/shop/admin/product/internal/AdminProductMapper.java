@@ -12,7 +12,7 @@ class AdminProductMapper {
                 .name(adminProductDto.name())
                 .description(adminProductDto.description())
                 .fullDescription(adminProductDto.fullDescription())
-                .category(adminProductDto.category())
+                .categoryId(adminProductDto.categoryId())
                 .price(adminProductDto.price())
                 .currency(adminProductDto.currency())
                 .image(adminProductDto.image())
@@ -24,7 +24,7 @@ class AdminProductMapper {
                 .name(adminProduct.getName())
                 .description(adminProduct.getDescription())
                 .fullDescription(adminProduct.getFullDescription())
-                .category(adminProduct.getCategory())
+                .categoryId(adminProduct.getCategoryId())
                 .price(adminProduct.getPrice())
                 .currency(adminProduct.getCurrency())
                 .build();

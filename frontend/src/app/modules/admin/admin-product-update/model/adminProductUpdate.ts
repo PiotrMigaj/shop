@@ -3,7 +3,7 @@ export interface AdminProductUpdate{
     name:string,
     description:string,
     fullDescription: string,
-    category:string,
+    categoryId:Number,
     price:number,
     currency:string,
     image:string,

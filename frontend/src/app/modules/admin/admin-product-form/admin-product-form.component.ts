@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AdminCategoryNamesDto } from './adminCategoryNamesDto';
+import { FormCategoryService } from './form-category.service';
 
 @Component({
   selector: 'app-admin-product-form',
@@ -68,25 +70,24 @@ import { FormGroup } from '@angular/forms';
           formControlName="fullDescription"
         ></textarea>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Kategoria</mat-label>
-        <input
-          matInput
-          placeholder="podaj kategoria"
-          formControlName="category"
-        />
+        <mat-select formControlName="categoryId">
+          <mat-option *ngFor="let el of categories" [value]="el.id">
+            {{ el.name }}
+          </mat-option>
+        </mat-select>
         <div
-          *ngIf="category?.invalid && (category?.dirty || category?.touched)"
+          *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)"
           class="errorMessages"
         >
-          <div *ngIf="category?.errors?.['required']">
+          <div *ngIf="categoryId?.errors?.['required']">
             Kategoria jest wymagana
-          </div>
-          <div *ngIf="category?.errors?.['minlength']">
-            Kategoria musi mieć przynajmniej 4 znaki
           </div>
         </div>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Cena</mat-label>
         <input matInput placeholder="Podaj cena" formControlName="price" />
@@ -98,6 +99,7 @@ import { FormGroup } from '@angular/forms';
           <div *ngIf="price?.errors?.['min']">Cena musi być większa od 0</div>
         </div>
       </mat-form-field>
+
       <mat-form-field appearance="fill">
         <mat-label>Waluta</mat-label>
         <input
@@ -130,10 +132,18 @@ import { FormGroup } from '@angular/forms';
 })
 export class AdminProductFormComponent implements OnInit {
   @Input() parentForm!: FormGroup;
+  categories: Array<AdminCategoryNamesDto> = [];
 
-  constructor() {}
+  constructor(private formCategoryService:FormCategoryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCategories();
+  }
+
+  getCategories(){
+    this.formCategoryService.getCategories()
+    .subscribe(categories => this.categories = categories);
+  }
 
   get name() {
     return this.parentForm.get('name');
@@ -141,8 +151,8 @@ export class AdminProductFormComponent implements OnInit {
   get description() {
     return this.parentForm.get('description');
   }
-  get category() {
-    return this.parentForm.get('category');
+  get categoryId() {
+    return this.parentForm.get('categoryId');
   }
   get price() {
     return this.parentForm.get('price');
