@@ -15,11 +15,12 @@ import java.math.BigDecimal;
 public class Product extends BaseEntity {
 
     private String name;
-    private String category;
+    private Long categoryId;
     private String description;
     private String fullDescription;
     private BigDecimal price;
     private String currency;
     private String image;
     private String slug;
+    
 }

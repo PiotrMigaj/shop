@@ -1,6 +1,6 @@
 services:
   mysql:
-    container_name: mysql-jpa
+    container_name: mysql-shop
     image: mysql/mysql-server:latest
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -13,8 +13,8 @@ services:
     ports:
       - "3308:3308"
     networks:
-      - mysql-jpa2
+      - mysql-shop
 
 networks:
-  mysql-jpa2:
+  mysql-shop:
     driver: bridge

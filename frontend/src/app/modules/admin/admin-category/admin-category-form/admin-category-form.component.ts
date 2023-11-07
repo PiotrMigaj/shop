@@ -11,7 +11,7 @@ import { FormGroup } from '@angular/forms';
         <mat-label>Nazwa</mat-label>
         <input
           matInput
-          placeholder="Podaj nazwa produktu"
+          placeholder="Podaj nazwa kategorii"
           formControlName="name"
         />
         <div
@@ -44,7 +44,7 @@ import { FormGroup } from '@angular/forms';
         <textarea
           matInput
           rows="10"
-          placeholder="Podaj opis produktu"
+          placeholder="Podaj opis kategorii"
           formControlName="description"
         ></textarea>
         <div
