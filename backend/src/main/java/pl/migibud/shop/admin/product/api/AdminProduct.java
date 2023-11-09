@@ -1,9 +1,9 @@
 package pl.migibud.shop.admin.product.api;
 
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import pl.migibud.shop.common.entity.BaseEntity;
 
 import javax.persistence.Entity;
@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @Table(name = "product")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@SuperBuilder
 public class AdminProduct extends BaseEntity {
     private String name;
     private Long categoryId;
@@ -26,22 +27,7 @@ public class AdminProduct extends BaseEntity {
     private AdminProductCurrency currency;
     private String image;
     private String slug;
-
-    @Builder
-    public AdminProduct(Long id, String name, Long categoryId, String description,
-                        final String fullDescription,
-                        BigDecimal price, AdminProductCurrency currency, String image, String slug) {
-        super(id);
-        this.name = name;
-        this.categoryId = categoryId;
-        this.description = description;
-        this.fullDescription = fullDescription;
-        this.price = price;
-        this.currency = currency;
-        this.image = image;
-        this.slug = slug;
-    }
-
+    
     public enum AdminProductCurrency{
         PLN,USD
     }

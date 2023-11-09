@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.migibud.shop.product.api.Product;
+import pl.migibud.shop.product.api.ProductDto;
+import pl.migibud.shop.product.api.ProductWithReviewDto;
 
 import javax.validation.constraints.Pattern;
 
@@ -24,12 +25,12 @@ class ProductController {
     private final ProductFacade productFacade;
 
     @GetMapping
-    Page<Product> getProducts(Pageable pageable) {
+    Page<ProductDto> getProducts(Pageable pageable) {
         return productFacade.getProducts(pageable);
     }
 
     @GetMapping("{slug}")
-    Product getProduct(@PathVariable @Pattern(regexp = "[a-z0-9\\-]+") @Length(max = 255) String slug) {
+    ProductWithReviewDto getProduct(@PathVariable @Pattern(regexp = "[a-z0-9\\-]+") @Length(max = 255) String slug) {
         return productFacade.getProduct(slug);
     }
 

@@ -1,6 +1,5 @@
 package pl.migibud.shop.product.api;
 
-
 import lombok.*;
 import pl.migibud.shop.common.entity.BaseEntity;
 
