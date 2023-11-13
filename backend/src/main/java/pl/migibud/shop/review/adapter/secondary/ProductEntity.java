@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "review.ProductEntity")
 @Table(name = "PRODUCT")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

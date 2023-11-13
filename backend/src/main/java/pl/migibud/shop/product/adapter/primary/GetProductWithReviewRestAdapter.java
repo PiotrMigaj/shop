@@ -20,7 +20,7 @@ class GetProductWithReviewRestAdapter {
     
     private final GetProductWithReviewUseCase getProductWithReviewUseCase;
 
-    @GetMapping("{slug}")
+    @GetMapping("api/v1/products/{slug}")
     ProductWithReviewView getProduct(@PathVariable @Pattern(regexp = "[a-z0-9\\-]+") @Length(max = 255) String slug) {
         return getProductWithReviewUseCase.getProductBy(slug);
     }

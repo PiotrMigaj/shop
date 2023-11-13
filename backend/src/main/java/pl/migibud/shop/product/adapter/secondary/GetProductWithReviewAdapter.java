@@ -15,6 +15,6 @@ class GetProductWithReviewAdapter implements GetProductWithReviewPort {
     }
     @Override
     public ProductWithReviewView queryBy(String slug) {
-        return productRepository.getProductEntityBy(slug);
+        return productRepository.getProductEntityBySlug(slug);
     }
 }

@@ -11,5 +11,5 @@ import java.util.List;
 interface ProductRepository extends JpaRepository<ProductEntity,Long> {
     
     List<GetProductsView> findAllBy();
-    ProductWithReviewView getProductEntityBy(String slug);
+    ProductWithReviewView getProductEntityBySlug(String slug);
 }
