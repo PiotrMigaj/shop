@@ -20,12 +20,12 @@ import java.util.NoSuchElementException;
 @RequiredArgsConstructor
 class ProductFacade {
 
-    private final ProductRepository productRepository;
+    private final ProductOldRepository productOldRepository;
     private final ProductMapper productMapper;
     private final ReviewQueryRepository reviewQueryRepository;
 
     Page<ProductDto> getProducts(Pageable pageable){
-        Page<Product> products = productRepository.findAll(pageable);
+        Page<Product> products = productOldRepository.findAll(pageable);
         return new PageImpl<>(
             productMapper.map(products.getContent()),
             pageable,
@@ -35,7 +35,7 @@ class ProductFacade {
 
     @Transactional(readOnly = true)
     public ProductWithReviewDto getProduct(String slug){
-        Product product = productRepository
+        Product product = productOldRepository
             .findBySlug(slug)
             .orElseThrow(() -> new NoSuchElementException("There is no product with slug: '%s'".formatted(slug)));
         List<Review> reviews = reviewQueryRepository.findAllByProductIdAndModerated(product.getId(),

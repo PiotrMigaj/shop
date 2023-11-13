@@ -1,22 +1,23 @@
-package pl.migibud.shop.review.api;
+package pl.migibud.shop.review.adapter.secondary;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
-import pl.migibud.shop.common.entity.BaseEntity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "REVIEW")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@SuperBuilder
+@Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
-public class Review extends BaseEntity {
-    
+class ReviewEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long productId;
     private String authorName;
     private String content;
     private boolean moderated;
 }
-

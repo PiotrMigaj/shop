@@ -6,6 +6,6 @@ import pl.migibud.shop.product.api.ProductQueryRepository;
 
 import java.util.Optional;
 
-interface ProductRepository extends ProductQueryRepository, JpaRepository<Product,Long> {
+interface ProductOldRepository extends ProductQueryRepository, JpaRepository<Product,Long> {
     Optional<Product> findBySlug(String slug);
 }
