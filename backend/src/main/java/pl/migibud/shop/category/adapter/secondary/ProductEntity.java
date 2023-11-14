@@ -1,12 +1,11 @@
-package pl.migibud.shop.product.adapter.secondary;
+package pl.migibud.shop.category.adapter.secondary;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
-@Entity(name = "product.ProductEntity")
+@Entity(name = "category.ProductEntity")
 @Table(name = "PRODUCT")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,7 +25,4 @@ class ProductEntity {
     private String currency;
     private String image;
     private String slug;
-    @OneToMany
-    @JoinColumn(name = "productId")
-    List<ReviewEntity> reviews;
 }

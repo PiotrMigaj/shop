@@ -1,13 +1,12 @@
-package pl.migibud.shop.product.domain.model;
+package pl.migibud.shop.category.domain.model;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
-import pl.migibud.shop.product.domain.vo.CategoryId;
-import pl.migibud.shop.product.domain.vo.ProductId;
+import pl.migibud.shop.category.domain.vo.CategoryId;
+import pl.migibud.shop.category.domain.vo.ProductId;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Getter
 @Builder
@@ -23,5 +22,4 @@ public class Product {
     private String currency;
     private String image;
     private String slug;
-    private List<Review> reviews;
 }
