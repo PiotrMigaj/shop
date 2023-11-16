@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import pl.migibud.shop.review.application.port.secondary.ExistsProductByIdPort;
 import pl.migibud.shop.review.domain.vo.ProductId;
 
-@Repository
+@Repository("review.ExistsProductByIdAdapter")
 class ExistsProductByIdAdapter implements ExistsProductByIdPort {
     
     private final ProductRepository productRepository;

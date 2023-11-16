@@ -1,6 +1,6 @@
 package pl.migibud.shop.review.application.service;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.migibud.shop.review.application.port.primary.AddReviewCommand;
@@ -10,12 +10,19 @@ import pl.migibud.shop.review.application.port.secondary.ExistsProductByIdPort;
 import pl.migibud.shop.review.domain.model.Review;
 
 @Service
-@RequiredArgsConstructor
 class AddReviewService implements AddReviewUseCase {
 
     private final AddReviewPort addReviewPort;
 
     private final ExistsProductByIdPort existsProductByIdPort;
+
+    public AddReviewService(
+        AddReviewPort addReviewPort, 
+        @Qualifier("review.ExistsProductByIdAdapter") ExistsProductByIdPort existsProductByIdPort
+    ) {
+        this.addReviewPort = addReviewPort;
+        this.existsProductByIdPort = existsProductByIdPort;
+    }
 
     @Transactional
     @Override
