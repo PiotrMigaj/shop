@@ -7,6 +7,7 @@ import pl.migibud.shop.basket.domain.model.CartItem;
 import pl.migibud.shop.basket.domain.model.Product;
 import pl.migibud.shop.basket.domain.vo.CartId;
 import pl.migibud.shop.basket.domain.vo.CartItemId;
+import pl.migibud.shop.basket.domain.vo.CategoryId;
 import pl.migibud.shop.basket.domain.vo.ProductId;
 
 import java.util.List;
@@ -91,6 +92,13 @@ interface CartEntityMapper {
                 .builder()
                 .id(productEntity.getId())
                 .build())
+            .price(productEntity.getPrice())
+            .categoryId(CategoryId.builder().id(productEntity.getCategoryId()).build())
+            .currency(productEntity.getCurrency())
+            .description(productEntity.getDescription())
+            .fullDescription(productEntity.getFullDescription())
+            .slug(productEntity.getSlug())
+            .image(productEntity.getImage())
             .build();
     }
 
