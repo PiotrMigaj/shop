@@ -9,7 +9,6 @@ import pl.migibud.shop.basket.application.port.secondary.ExistsProductByIdPort;
 import pl.migibud.shop.basket.application.port.secondary.QueryCartByIdPort;
 import pl.migibud.shop.basket.application.port.secondary.SaveCartPort;
 import pl.migibud.shop.basket.domain.model.Cart;
-import pl.migibud.shop.basket.domain.model.Product;
 import pl.migibud.shop.basket.domain.vo.CartId;
 import pl.migibud.shop.basket.domain.vo.ProductId;
 
@@ -43,14 +42,11 @@ class AddProductToCartService implements AddProductToCartUseCase {
     }
 
     private void addProductToCart(AddProductToCartCommand command, Cart cart) {
-        Product product = Product
+        ProductId productId = ProductId
             .builder()
-            .productId(ProductId
-                .builder()
-                .id(command.productId())
-                .build())
+            .id(command.productId())
             .build();
-        cart.addProduct(product, command.quantity());
+        cart.addProduct(productId, command.quantity());
     }
 
     private void checkIfProductExists(AddProductToCartCommand command) {

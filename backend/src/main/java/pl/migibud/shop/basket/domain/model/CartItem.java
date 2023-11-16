@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import pl.migibud.shop.basket.domain.vo.CartItemId;
+import pl.migibud.shop.basket.domain.vo.ProductId;
 
 import java.math.BigDecimal;
 
@@ -16,13 +17,13 @@ public class CartItem {
 
     private int quantity;
 
-    private Product product;
+    private ProductId productId;
 
-    public static CartItem createNew(int quantity, Product product) {
+    public static CartItem createNew(int quantity, ProductId productId) {
         return CartItem
             .builder()
             .quantity(quantity)
-            .product(product)
+            .productId(productId)
             .build();
     }
     

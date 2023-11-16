@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.ToString;
 import org.apache.commons.collections4.CollectionUtils;
 import pl.migibud.shop.basket.domain.vo.CartId;
+import pl.migibud.shop.basket.domain.vo.ProductId;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -27,19 +28,18 @@ public class Cart {
             .build();
     }
 
-    public void addProduct(Product product, int quantity) {
+    public void addProduct(ProductId productId, int quantity) {
         if (CollectionUtils.isEmpty(items)) {
-            items.add(CartItem.createNew(quantity, product));
+            items.add(CartItem.createNew(quantity, productId));
             return;
         }
         items
             .stream()
             .filter(cartItem -> cartItem
-                .getProduct()
                 .getProductId()
-                .equals(product.getProductId()))
+                .equals(productId))
             .findFirst().ifPresentOrElse(cartItem -> cartItem.increaseQuantityOfProduct(quantity),()->
-                items.add(CartItem.createNew(quantity,product))
+                items.add(CartItem.createNew(quantity,productId))
             );
     }
     
