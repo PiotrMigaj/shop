@@ -2,8 +2,8 @@ package pl.migibud.shop.basket.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.migibud.shop.basket.application.port.primary.CartQueryModel;
-import pl.migibud.shop.basket.application.port.primary.QueryCartByIdUseCase;
+import pl.migibud.shop.basket.application.port.primary.querycart.CartQueryModel;
+import pl.migibud.shop.basket.application.port.primary.querycart.QueryCartByIdUseCase;
 import pl.migibud.shop.basket.application.port.secondary.QueryCartByIdPort;
 import pl.migibud.shop.basket.domain.model.Cart;
 import pl.migibud.shop.basket.domain.vo.CartId;
@@ -16,6 +16,6 @@ class QueryCartByIdService implements QueryCartByIdUseCase {
     @Override
     public CartQueryModel queryBy(CartId cartId) {
         Cart cart = queryCartByIdPort.queryBy(cartId);
-        return null;
+        return QueryCartMapper.INSTANCE.map(cart);
     }
 }

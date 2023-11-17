@@ -1,4 +1,4 @@
-package pl.migibud.shop.basket.application.port.primary;
+package pl.migibud.shop.basket.application.port.primary.addproduct;
 
 import pl.migibud.shop.basket.domain.vo.CartId;
 
