@@ -17,9 +17,9 @@ class CartItemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int quantity;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private ProductEntity product;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
     @Setter
     private CartEntity cart;

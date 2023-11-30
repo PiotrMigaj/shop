@@ -12,11 +12,11 @@ import java.math.BigDecimal;
 @ToString
 public class CartItem {
 
-    private CartItemId cartItemId;
+    private final CartItemId cartItemId;
 
     private int quantity;
 
-    private Product product;
+    private final Product product;
 
     public static CartItem createNew(int quantity, Product product) {
         return CartItem
@@ -28,6 +28,10 @@ public class CartItem {
     
     public void increaseQuantityOfProduct(int quantity){
         this.quantity+=quantity;
+    }
+    
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
     }
     
     public BigDecimal calculateTotalValueOfProducts(){

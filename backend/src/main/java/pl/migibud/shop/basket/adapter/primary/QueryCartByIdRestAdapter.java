@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import pl.migibud.shop.basket.application.port.primary.querycart.CartQueryModel;
 import pl.migibud.shop.basket.application.port.primary.querycart.QueryCartByIdUseCase;
+import pl.migibud.shop.basket.application.port.primary.querycart.model.CartQueryModel;
 import pl.migibud.shop.basket.domain.vo.CartId;
 
 @Slf4j

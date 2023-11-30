@@ -2,8 +2,8 @@ package pl.migibud.shop.basket.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.migibud.shop.basket.application.port.primary.querycart.CartQueryModel;
 import pl.migibud.shop.basket.application.port.primary.querycart.QueryCartByIdUseCase;
+import pl.migibud.shop.basket.application.port.primary.querycart.model.CartQueryModel;
 import pl.migibud.shop.basket.application.port.secondary.QueryCartByIdPort;
 import pl.migibud.shop.basket.domain.model.Cart;
 import pl.migibud.shop.basket.domain.vo.CartId;

@@ -10,8 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import pl.migibud.shop.basket.BasketIntegrationTestConfiguration;
-import pl.migibud.shop.basket.application.port.primary.addproduct.AddProductToCartCommand;
 import pl.migibud.shop.basket.application.port.primary.addproduct.AddProductToCartUseCase;
+import pl.migibud.shop.basket.application.port.primary.addproduct.model.AddProductToCartCommand;
 import pl.migibud.shop.basket.domain.vo.CartId;
 
 import static org.assertj.core.api.Assertions.assertThat;

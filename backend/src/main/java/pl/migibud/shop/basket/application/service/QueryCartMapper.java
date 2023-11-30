@@ -2,10 +2,10 @@ package pl.migibud.shop.basket.application.service;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import pl.migibud.shop.basket.application.port.primary.querycart.CartItemQueryModel;
-import pl.migibud.shop.basket.application.port.primary.querycart.CartQueryModel;
-import pl.migibud.shop.basket.application.port.primary.querycart.ProductQueryModel;
-import pl.migibud.shop.basket.application.port.primary.querycart.SummaryQueryModel;
+import pl.migibud.shop.basket.application.port.primary.querycart.model.CartItemQueryModel;
+import pl.migibud.shop.basket.application.port.primary.querycart.model.CartQueryModel;
+import pl.migibud.shop.basket.application.port.primary.querycart.model.ProductQueryModel;
+import pl.migibud.shop.basket.application.port.primary.querycart.model.SummaryQueryModel;
 import pl.migibud.shop.basket.domain.model.Cart;
 import pl.migibud.shop.basket.domain.model.CartItem;
 import pl.migibud.shop.basket.domain.model.Product;

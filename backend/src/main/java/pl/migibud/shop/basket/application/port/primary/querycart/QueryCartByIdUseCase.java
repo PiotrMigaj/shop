@@ -1,5 +1,6 @@
 package pl.migibud.shop.basket.application.port.primary.querycart;
 
+import pl.migibud.shop.basket.application.port.primary.querycart.model.CartQueryModel;
 import pl.migibud.shop.basket.domain.vo.CartId;
 
 public interface QueryCartByIdUseCase {

@@ -1,4 +1,4 @@
-package pl.migibud.shop.basket.application.port.primary.querycart;
+package pl.migibud.shop.basket.application.port.primary.querycart.model;
 
 import lombok.Builder;
 

@@ -22,7 +22,7 @@ class CartEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime created;
-    @OneToMany(mappedBy = "cart",cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(mappedBy = "cart",cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE })
     @Fetch(FetchMode.JOIN)
     private List<CartItemEntity> items = new ArrayList<>();
 

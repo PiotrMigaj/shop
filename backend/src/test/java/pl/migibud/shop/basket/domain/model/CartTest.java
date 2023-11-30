@@ -1,15 +1,16 @@
 package pl.migibud.shop.basket.domain.model;
 
 import org.junit.jupiter.api.Test;
+import pl.migibud.shop.basket.domain.vo.CartItemId;
 import pl.migibud.shop.basket.domain.vo.ProductId;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 class CartTest {
-    
     
     @Test
     void shouldCreateEmptyCart(){
@@ -149,6 +150,53 @@ class CartTest {
 
         //then
         assertThat(result).isEqualTo(new BigDecimal("50.00"));
+    }
+    
+    @Test
+    void shouldUpdateCart(){
+        //given
+        Product product1 = Product.builder().productId(ProductId.builder().id(1L).build()).price(new BigDecimal("20.00")).build();
+        Product product2 = Product.builder().productId(ProductId.builder().id(2L).build()).price(new BigDecimal("15.00")).build();
+        int quantity1 = 1;
+        int quantity2 = 2;
+        CartItem cartItem1 = CartItem
+            .builder()
+            .cartItemId(CartItemId
+                .builder()
+                .id(1L)
+                .build())
+            .quantity(quantity1)
+            .product(product1)
+            .build();
+
+        CartItem cartItem2 = CartItem
+            .builder()
+            .cartItemId(CartItemId
+                .builder()
+                .id(2L)
+                .build())
+            .quantity(quantity2)
+            .product(product2)
+            .build();
+
+        Cart cart = Cart.createEmpty();
+        cart.addCartItems(List.of(cartItem1,cartItem2));
+
+        CartItem cartItem1Update = CartItem
+            .builder()
+            .cartItemId(CartItemId
+                .builder()
+                .id(1L)
+                .build())
+            .quantity(10)
+            .build();
+
+        //when
+        cart.updateCart(List.of(cartItem1Update));
+        
+        //then
+        assertThat(cartItem1.getQuantity()).isEqualTo(10);
+
     }
     
     

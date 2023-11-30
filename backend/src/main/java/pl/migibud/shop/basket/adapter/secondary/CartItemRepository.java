@@ -5,14 +5,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-@Repository("basket.CartRepository")
-interface CartRepository extends JpaRepository<CartEntity,Long> {
-    List<CartEntity> findByCreatedLessThan(LocalDateTime localDateTime);
+@Repository("basket.CartItemRepository")
+interface CartItemRepository extends JpaRepository<CartItemEntity,Long> {
+    Long countByCartId(Long cartId);
     
-    @Query("delete from cart.CartEntity c where c.id in (:ids)")
+    @Query("delete from cart.CartItemEntity ci where ci.cart.id in (:ids)")
     @Modifying
-    void deleteAllByIdIn(List<Long> ids);
+    void deleteAllByCartIdIn(List<Long> ids);
 }

@@ -16,8 +16,8 @@ import java.util.List;
 @ToString
 public class Cart {
     
-    private CartId cartId;
-    private LocalDateTime created;
+    private final CartId cartId;
+    private final LocalDateTime created;
     private final List<CartItem> items = new ArrayList<>();
     
     public static Cart createEmpty(){
@@ -51,6 +51,18 @@ public class Cart {
     
     public void addCartItems(List<CartItem> cartItems){
         items.addAll(cartItems);
+    }
+    
+    public void updateCart(List<CartItem> cartItems){
+        cartItems.forEach(
+            cartItemUpdate -> items.forEach(
+                item->{
+                    if (item.getCartItemId().equals(cartItemUpdate.getCartItemId())){
+                        item.setQuantity(cartItemUpdate.getQuantity());
+                    }
+                }
+            )
+        );
     }
     
 }

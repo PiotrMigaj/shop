@@ -36,5 +36,8 @@ server:
 
 app:
   uploadDir: './data/productImages/'
+  cartCleanup:
+    scheduling:
+      cron: '0 0 0 * * *'
 
 

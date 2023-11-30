@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pl.migibud.shop.basket.application.port.primary.addproduct.AddProductToCartCommand;
 import pl.migibud.shop.basket.application.port.primary.addproduct.AddProductToCartUseCase;
+import pl.migibud.shop.basket.application.port.primary.addproduct.model.AddProductToCartCommand;
 import pl.migibud.shop.basket.domain.vo.CartId;
 
 import javax.validation.Valid;
